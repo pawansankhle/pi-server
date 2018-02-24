@@ -1,0 +1,15 @@
+{
+  "name": "pi-server",
+  "version": "1.0.0",
+  "description": "server for home ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "pawan sankhle",
+  "license": "ISC",
+  "dependencies": {
+    "mqtt": "2.15.3",
+    "orange-pi-gpio": "^1.0.2"
+  }
+}
