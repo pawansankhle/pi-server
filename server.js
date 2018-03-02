@@ -14,6 +14,13 @@ const client = mqtt.connect(config.broker_url,{
     password: config.broker_password
 });
 
+// const client = mqtt.connect([{
+//     host: config.broker,
+//     port : config.broker_port,
+//     username: config.broker_username,
+//     password: config.broker_password
+// }]);
+
 
 client.on('connect', function () {
     console.log("client connected...");
@@ -24,7 +31,7 @@ client.on('connect', function () {
 client.on('message', function (topic, message) {
     var myTopic = get_topic(topic);
     var clientId = get_client_id(topic);
-    perform_action(myTopic, clientId, message)
+    perform_action(myTopic, clientId, message.toString())
 });
 
 
