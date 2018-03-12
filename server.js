@@ -24,11 +24,13 @@ const client = mqtt.connect(config.broker_url,{
 
 client.on('connect', function () {
     console.log("client connected...");
+    client.subscribe('device/#')
     client.subscribe('home/#')
 });
 
 
 client.on('message', function (topic, message) {
+    console.log('message recived..', topic);
     var myTopic = get_topic(topic);
     var clientId = get_client_id(topic);
     perform_action(myTopic, clientId, message.toString())
